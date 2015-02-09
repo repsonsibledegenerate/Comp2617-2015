@@ -22,7 +22,14 @@ int main()
 	//prompt the user to input a nonnegative integer between 0 and 20
 	cout << "Enter a positive integer less than or equal to 20: ";
 	cin >> numToCalculate;//holds the input value
+	while (cin.rdstate()) // check if there was a problem on input
+	{
+		cin.clear(); // if yes, clear the error bit that is set (badbit, failbit or eofbit) 
+		cin.ignore(INT_MAX, '\n'); // flush the input buffer
 
+		cout << "Enter a positive integer less than or equal to 20: ";
+		cin >> numToCalculate;
+	}
 	//enter loop that checks that the numToCalculate value is equal to or less than 20 and is positive
 	//if the value is invalid, reenter loop and ask for input until a valid value is input
 	while (numToCalculate < 0 || numToCalculate > 20)
@@ -39,6 +46,7 @@ int main()
 	}
 
 	//output the factorial value
+	cout << endl;
 	cout << numToCalculate << "! is " << factorial << endl;
 	cout << endl;
 
