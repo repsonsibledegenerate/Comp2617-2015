@@ -24,6 +24,7 @@ void incorrectMessage();
 
 int main()
 {
+	//call multiplication function
 	multiplication();
 
 }//end of main function
@@ -52,7 +53,14 @@ void multiplication()
 		//ask the multiplication question and get user answser
 		cout << "How much is " << number1 << " times " << number2 << " (-1 to end) ";
 		cin >> answer;//input answer from user
+		while (cin.rdstate()) // check if there was a problem on input
+		{
+			cin.clear(); // if yes, clear the error bit that is set (badbit, failbit or eofbit) 
+			cin.ignore(INT_MAX, '\n'); // flush the input buffer
 
+			cout << "How much is " << number1 << " times " << number2 << " (-1 to end) ";
+			cin >> answer;//input answer from user
+		}
 		//if the answer is correct, call the correctMessage function
 		//if the answer is wrong, call the incorrectMessage function until the correct value is entered
 		while (answer != product && answer != -1)
