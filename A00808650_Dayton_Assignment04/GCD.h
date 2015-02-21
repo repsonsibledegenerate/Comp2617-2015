@@ -10,17 +10,12 @@ Template function that negates negative values and calculates the gcd of the den
 
 //function template GCD header
 template<typename T> 
-T GCD(T value1, T value2)
+T gcd(T value1, T value2)
 {
 	//initialize variables
 	T firstNumber;
 	T secondNumber;
 	T gcd = 1;
-
-	//negate any negative values
-
-
-
 
 	//calculate the GCD
 	for (unsigned int i = 1; i <= firstNumber && i <= secondNumber; ++i)

@@ -8,6 +8,14 @@
 #include <iostream>
 using namespace std;
 
+void Fraction::simplify(void)
+{
+	if (denominator < 0)
+	{
+		denominator = -denominator;
+	}
+	gcd(numerator, denominator);
+}
 //Implementation of the timesEq() member function
 //Performs similar operation as the *= operator on the built-in types
 const Fraction & Fraction::timesEq(const Fraction & op )
@@ -22,12 +30,19 @@ const Fraction & Fraction::timesEq(const Fraction & op )
 	return (*this); // returns the object which invoked the method
 }
 
-const Fraction & divideEq (const Fraction & RHS )
+const Fraction & Fraction::divideEq (const Fraction & op )
 {
-    numerator /= op.denominator;
-    denominator/=op.numerator;
+    numerator *= op.denominator;
+    denominator*=op.numerator;
     
     simplify();
     
     return (*this);
+}
+
+const Fraction & Fraction::plusEq(const Fraction & op)
+{
+	denominator *= op.denominator;
+	
+
 }
