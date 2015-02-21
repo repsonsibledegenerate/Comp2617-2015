@@ -6,7 +6,8 @@ Date: Feb142015
 
 Program that helps students learn multiplication
 The program chooses 2 random integers to multiply and prompts the student to answser
-Correct answers get a positive congratulatory repsonse and asked another question until the sentinel value is entered
+Correct answers get a positive congratulatory repsonse and asked another question
+until the sentinel value is entered
 Incorrect answers are given a reponse of encouragement and asked for another answer
 
 */
@@ -17,9 +18,12 @@ using namespace std;
 
 
 //global function prototypes
-void multiplication();
-void correctMessage();
-void incorrectMessage();
+
+
+void multiplication();//create two random numbers and multiply them, ask user for the answer, 
+//display a message depending an correct or incorrect answer, repeat until sentinal is entered
+void correctMessage();//display a random correct message 
+void incorrectMessage();//display a random incorrect message and ask for another answer
 
 
 int main()
@@ -29,6 +33,8 @@ int main()
 
 }//end of main function
 
+//create two random numbers and multiply them, ask user for the answer, 
+//display a message depending an correct or incorrect answer, repeat until sentinal is entered
 void multiplication()
 {
 	//initialize variables
