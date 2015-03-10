@@ -4,7 +4,7 @@ GCD.h
 Author: Krista Dayton
 Date: Feb 19 2015
 
-Template function that negates negative values and calculates the gcd of the denominators
+Template function that calculates the gcd of 2 denominators
 
 */
 
@@ -12,17 +12,25 @@ Template function that negates negative values and calculates the gcd of the den
 template<typename T> 
 T gcd(T value1, T value2)
 {
-	//initialize variables
-	T firstNumber;
-	T secondNumber;
 	T gcd = 1;
 
-	//calculate the GCD
-	for (unsigned int i = 1; i <= firstNumber && i <= secondNumber; ++i)
+	//if num1 is negative, swap negation
+	if (value1 < 0)
 	{
-		if (firstNumber%i == 0 && secondNumber%i == 0)
+		value1 = -value1;
+	}
+	//if num2 is negative, swap negation
+	if (value2 < 0)
+	{
+		value2 = -value2;
+	}
+	//calculate the GCD
+	for (int i = 1; i <= value1 && i <= value2; ++i)
+	{
+		if (value1%i == 0 && value2%i == 0)
 		{
 			gcd = i;
 		}
 	}
+	return gcd;
 }
